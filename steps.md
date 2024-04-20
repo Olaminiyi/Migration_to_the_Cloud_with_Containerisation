@@ -93,7 +93,10 @@ services:
 
 - create a a workspace for the project on terraform cloud and set up the environmental variables
 
-- click on runs on the terraform cloud; check for the plan and cost estimation 
+- click on runs on the terraform cloud; check for the plan and cost estimation and apply the plan
+
+- check if the resources are created on the AWS console
+
 
 
 
