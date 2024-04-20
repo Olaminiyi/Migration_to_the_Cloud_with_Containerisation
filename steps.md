@@ -72,3 +72,36 @@ services:
 - it will also remove the network as well
 
 - docker image is built from javascript node js application
+
+
+# The next step is to build the AMI for Jenkins server with packer
+      cd AMI
+      packer build jenkins-docker.pkr.hcl
+    
+- I was getting this error; I resolved it by creating the ami in another region (us-east-1)
+
+# you can use "export PACKER_LOG=1 " to print log on the terminal and use "unset PACKER_LOG"
+- check the aws for the AMI created by packer
+
+
+
+- in the New_project_20 that contains the terraform configuration
+- cd in to the folde
+- updated the terraform.auto.tfvar file
+
+- commit and push to repo
+
+- create a a workspace for the project on terraform cloud and set up the environmental variables
+
+- click on runs on the terraform cloud; check for the plan and cost estimation 
+
+
+
+
+
+
+
+
+
+
+

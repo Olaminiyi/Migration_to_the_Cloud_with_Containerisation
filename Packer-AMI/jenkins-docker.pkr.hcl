@@ -1,7 +1,10 @@
 variable "region" {
   type    = string
-  default = "us-west-2"
+  default = "us-east-1"
+
 }
+
+
 
 locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
@@ -13,9 +16,12 @@ source "amazon-ebs" "jenkins-docker" {
   ami_name      = "jenkins-docker-${local.timestamp}"
   instance_type = "t2.micro"
   region        = var.region
+  # access_key = var.aws_access_key
+  # secret_key = var.aws_secret_key
+
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"
+      name                = "ubuntu-pro-server*20.04-amd64*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
