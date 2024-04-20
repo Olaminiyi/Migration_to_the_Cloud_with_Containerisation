@@ -97,7 +97,7 @@ services:
 
 - check if the resources are created on the AWS console
 
-
+- connect to the jenkins server via ssh
 
 
 
