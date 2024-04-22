@@ -105,6 +105,10 @@ services:
 
 
 
+- i got this error during build
+# Error response from daemon: failed to parse Dockerfile: Syntax error - can't find = in "RUN". Must be of the form: name=value
+- it was a result of the trailing \ at end of the last environmental 
 
 
 
+invalid parameter at 'PolicyText' failed to satisfy constraint: 'Invalid registry policy provided'
