@@ -79,30 +79,72 @@ services:
       packer build jenkins-docker.pkr.hcl
     
 - I was getting this error; I resolved it by creating the ami in another region (us-east-1)
+![alt text](Images/1.1.png)
+![alt text](Images/1.2.png)
+# you can use "export PACKER_LOG=1 " to print log on the terminal (for error tracing) and use "unset PACKER_LOG" to remove the log from the terminal
 
-# you can use "export PACKER_LOG=1 " to print log on the terminal and use "unset PACKER_LOG"
 - check the aws for the AMI created by packer
-
+![alt text](Images/1.3.png)
 
 
 - in the New_project_20 that contains the terraform configuration
 - cd in to the folde
 - updated the terraform.auto.tfvar file
+![alt text](Images/1.4.png)
 
 - commit and push to repo
+![alt text](Images/1.5.png)
 
 - create a a workspace for the project on terraform cloud and set up the environmental variables
-
+![alt text](Images/1.6.png)
 - click on runs on the terraform cloud; check for the plan and cost estimation and apply the plan
+![alt text](Images/1.7.png)
+![alt text](Images/1.8.png)
 
 - check if the resources are created on the AWS console
+![alt text](Images/1.9.png)
+![alt text](Images/1.10.png)
+![alt text](Images/1.11.png)
 
 - connect to the jenkins server via ssh
+![alt text](Images/1.12.png)
+![alt text](Images/1.13.png)
 
+- connect to the Jenkins GUI via port 8080 
+- enable proxy compability under  CSRF
+- download the require plugins 
+- Restart Jenkins and docker
+![alt text](Images/1.14.png)
+![alt text](Images/1.15.png)
+![alt text](Images/1.16.png)
+![alt text](Images/1.17.png)
+![alt text](Images/1.18.png)
+![alt text](Images/1.19.png)
+![alt text](Images/1.20.png)
+![alt text](Images/1.22.png)
+![alt text](Images/1.23.png)
+![alt text](Images/1.24.png)
 
+- configure webhook
+![alt text](Images/1.21.png)
 
+- generate tokens and create a pipeline
+![alt text](Images/1.25.png)
+![alt text](Images/1.26.png)
+![alt text](Images/1.27.png)
 
+- build the pipeline by edit read.me and push to github for a build by jenkins
+![alt text](Images/1.28.png)
+![alt text](Images/1.29.png)
+![alt text](Images/1.30.png)
+![alt text](Images/1.31.png)
+![alt text](Images/1.32.png)
 
+- try to rebuild to a second image to be pushed to the ECR
+- check if the image were pushed successfully to the ECR
+![alt text](Images/1.33.png)
+![alt text](Images/1.34.png)
+![alt text](Images/1.35.png)
 
 
 - i got this error during build
@@ -110,5 +152,13 @@ services:
 - it was a result of the trailing \ at end of the last environmental 
 
 
+- to pull the image from the Registry, I encountered this error
 
 invalid parameter at 'PolicyText' failed to satisfy constraint: 'Invalid registry policy provided'
+
+aws ecr get-login-password --region <region>
+
+# you can login to the ECR with this command
+docker login -u AWS -p $(aws ecr get-authorization-token --region *your-region* --output text --query 'authorizationData[].authorizationToken' | base64 --decode | cut -c 5- ) ****.dkr.ecr.**-****-*.amazonaws.com
+
+
