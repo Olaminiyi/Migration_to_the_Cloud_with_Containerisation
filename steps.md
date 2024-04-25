@@ -16,13 +16,13 @@ when deploying 2 or more containers in a network, they can talk to each other us
 
 ### rewrite to be more readable
 ### run mongodb
- docker run -p -d \
- -p 27017:27017 \
- -e MONGO_INITDB_ROOT_USERNAME=admin \
- -e MONGO_INITDB_ROOT_PASSWORD=password \
- --name mongodb \
- --network mongo-network \
- mongo 
+     docker run -p -d \
+     -p 27017:27017 \
+     -e MONGO_INITDB_ROOT_USERNAME=admin \
+     -e MONGO_INITDB_ROOT_PASSWORD=password \
+     --name mongodb \
+     --network mongo-network \
+     mongo 
 
 ### run mongo-express
     docker run -p -d \
@@ -45,25 +45,25 @@ when deploying 2 or more containers in a network, they can talk to each other us
 - we can use docker compose to combine the two containers runs together. name it mongo.yaml
 - when using docker-compose we don't need to create a network, the docker-compose will create one by itself
 
-version: '3' \
-services: \
-  mongodb: \
-    image: mongo \
-    ports: \
-      - 27017:27017 \
-    environment: \
-      - MONGO_INITDB_ROOT_USERNAME=admin \
-      - MONGO_INITDB_ROOT_PASSWORD=password
-   
-  mongo-express: \
-    image: mongo-express \
-    restart: always # fixes MongoNetworkError when mongodb  is not ready when mongo-express starts \
-    ports: \
-      - 8080:8081 \
-    environment: \
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=password \
-      - ME_CONFIG_MONGODB_SERVER=mongodb \
+        version: '3' 
+        services: 
+          mongodb: 
+            image: mongo 
+            ports: 
+              - 27017:27017 
+            environment: 
+              - MONGO_INITDB_ROOT_USERNAME=admin 
+              - MONGO_INITDB_ROOT_PASSWORD=password
+           
+          mongo-express: 
+            image: mongo-express 
+            restart: always # fixes MongoNetworkError when mongodb is not ready when mongo-express starts 
+            ports: 
+              - 8080:8081 
+            environment: 
+              - ME_CONFIG_MONGODB_ADMINUSERNAME=admin 
+              - ME_CONFIG_MONGODB_ADMINPASSWORD=password 
+              - ME_CONFIG_MONGODB_SERVER=mongodb 
 
 - run the mongo.yaml with docker compose
     docker-compose  -f mongo.yaml up
