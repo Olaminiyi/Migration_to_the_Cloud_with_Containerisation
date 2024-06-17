@@ -88,7 +88,7 @@ when deploying 2 or more containers in a network, they can talk to each other us
 ![alt text](Images/1.3.png)
 
 
-- in the New_project_20 that contains the terraform configuration
+-  This [repo](https://github.com/Olaminiyi/Terraform-Configuration-For-Projects/tree/main) contains the terraform configuration
 - cd in to the folde
 - updated the terraform.auto.tfvar file
 ![alt text](Images/1.4.png)
