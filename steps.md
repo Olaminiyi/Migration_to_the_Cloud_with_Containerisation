@@ -8,9 +8,11 @@ docker pull mongo-express
  ```       
 - we are suppose to create a docker network for them to comunicate
 when deploying 2 or more containers in a network, they can talk to each other using just the conitainer name without local host or port number because they are in the same network
-### create a network
-        docker network create mongo-network
 
+### create a network
+```
+docker network create mongo-network
+```
 - you can run the each container with some environment variable such as: Mongod initial root username, Mongo initial root password and mongo initial Database, tag name(to connect to mongo express).
 - The DB name could be added as enviromental name with flag e "MONGO_INITDB_DATABASE"
 
