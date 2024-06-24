@@ -15,9 +15,9 @@ docker network create mongo-network
 ```
 - you can run the each container with some environment variable such as: Mongod initial root username, Mongo initial root password and mongo initial Database, tag name(to connect to mongo express).
 - The DB name could be added as enviromental name with flag e "MONGO_INITDB_DATABASE"
-
-  docker run -p 27017:27017 -d -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --network mongo-network mongo
-
+```
+docker run -p 27017:27017 -d -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --network mongo-network mongo
+```
 ### rewrite to be more readable
 ### run mongodb
      docker run -p -d \
