@@ -1,6 +1,7 @@
 pull mongoDb image
-    docker pull mongo
-
+```
+docker pull mongo
+```
 pull mongo-express UI
         docker pull mongo-express
         
