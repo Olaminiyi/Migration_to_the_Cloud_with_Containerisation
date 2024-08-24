@@ -1,4 +1,4 @@
-# Migration to the Cloud with Containerisation
+# Migration to the Cloud with Containerisation.
 #####
 
 pull mongoDb image
