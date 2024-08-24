@@ -10,7 +10,7 @@ pull mongo-express UI
 docker pull mongo-express
  ```       
 - we are suppose to create a docker network for them to comunicate
-when deploying 2 or more containers in a network, they can talk to each other using just the conitainer name without local host or port number because they are in the same network
+when deploying 2 or more containers in a network, they can talk to each other using just the conitainer name without local host or port number because they are in the same network.
 
 ### create a network
 ```
