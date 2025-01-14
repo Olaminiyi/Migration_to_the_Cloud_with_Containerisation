@@ -157,7 +157,7 @@ docker run -p 27017:27017 -d -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB
 
 - i got this error during build
 ### Error response from daemon: failed to parse Dockerfile: Syntax error - can't find = in "RUN". Must be of the form: name=value
-- it was a result of the trailing \ at end of the last environmental 
+- it was a result of the trailing \ at end of the last environmental. 
 
 
 - to pull the image from the Registry, I encountered this error
